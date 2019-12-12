@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.ProjetJava.LogIn">
    <children>
       <AnchorPane layoutX="-26.0" layoutY="52.0">
          <children>
@@ -34,7 +34,7 @@
                   <Image url="@images/lords%20back.jpg" />
                </image>
             </ImageView>
-            <TextField layoutX="185.0" layoutY="92.0" prefHeight="37.0" prefWidth="231.0" text="Erayana" />
+            <TextField fx:id="TFusername" layoutX="185.0" layoutY="92.0" prefHeight="37.0" prefWidth="231.0" />
             <Label layoutX="263.0" layoutY="62.0" text="USERNAME">
                <font>
                   <Font name="Candara Bold" size="15.0" />
@@ -45,16 +45,17 @@
                   <Font name="Candara Bold" size="15.0" />
                </font>
             </Label>
-            <Button graphicTextGap="5.0" layoutX="252.0" layoutY="243.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="96.0" style="-fx-background-color: #525252;" text="Log In" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
+            <Button fx:id="login" graphicTextGap="5.0" layoutX="252.0" layoutY="255.0" mnemonicParsing="false" onAction="#Login" prefHeight="25.0" prefWidth="96.0" style="-fx-background-color: #525252;" text="Log In" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <Label layoutX="238.0" layoutY="287.0" text="Create a new account?" textAlignment="CENTER" underline="true">
+            <Label fx:id="create" layoutX="238.0" layoutY="287.0" onMouseClicked="#createacc" text="Create a new account?" textAlignment="CENTER" underline="true">
                <font>
                   <Font name="Candara Bold" size="13.0" />
                </font>
             </Label>
-            <PasswordField layoutX="185.0" layoutY="184.0" prefHeight="37.0" prefWidth="231.0" />
+            <PasswordField fx:id="TFpassword" layoutX="185.0" layoutY="184.0" prefHeight="37.0" prefWidth="231.0" />
+            <Label fx:id="lblstatus" alignment="CENTER" contentDisplay="CENTER" layoutX="290.0" layoutY="230.0" />
          </children>
       </Pane>
    </children>

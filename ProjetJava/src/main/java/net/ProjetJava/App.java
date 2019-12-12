@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.*;
 
 /**
  * JavaFX App
@@ -15,13 +16,17 @@ public class App extends Application {
 
     private static Scene scene;
 
+    
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"));
+
+    	//Parent root = FXMLLoader.load(getClass().getResource("/src/main/ressources/net/ProjetJava/LogIn.fxml"));
+        scene = new Scene(loadFXML("LogIn"));
         stage.setScene(scene);
         stage.show();
     }
 
+	
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }

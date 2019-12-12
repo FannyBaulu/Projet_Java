@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.ProjetJava.ChoixGear">
+   <children>
+      <Pane layoutX="-8.0" layoutY="-7.0" prefHeight="56.0" prefWidth="608.0" style="-fx-background-color: black;">
+         <children>
+            <ImageView fitHeight="17.0" fitWidth="23.0" layoutX="28.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/ban_acn.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="52.0" layoutY="21.0" text="Erayana" textFill="WHITE" />
+            <Label layoutX="512.0" layoutY="21.0" text="Update profile" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="462.0" layoutY="49.0" prefHeight="353.0" prefWidth="138.0" style="-fx-background-color: black;">
+         <children>
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="15.0" prefHeight="325.0" prefWidth="138.0" text="BOOSTS:" textAlignment="CENTER" textFill="WHITE" />
+         </children>
+      </Pane>
+      <Pane layoutY="49.0" prefHeight="353.0" prefWidth="462.0" style="-fx-background-color: #2D2423;">
+         <children>
+            <VBox prefHeight="353.0" prefWidth="105.0">
+               <children>
+                  <Label prefHeight="26.0" prefWidth="107.0" text="Attack Gear" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <RadioButton mnemonicParsing="false" text="Range attack" textFill="WHITE">
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets left="5.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="Cavalry attack" textFill="WHITE">
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="5.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <RadioButton cache="true" mnemonicParsing="false" text="Infantry attack" textFill="WHITE">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="5.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <Label text="Administration Gear" textFill="#f2eded">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <RadioButton mnemonicParsing="false" text="Research gear" textFill="#fcfcfc">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="Construction gear" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="Gathering gear" textFill="#eeeeee">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="5.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <Label text="Hyper Gear" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <RadioButton mnemonicParsing="false" text="Stone" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="Wood" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="Ore" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="Gold" textFill="#fcfcfc">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="Food" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="5.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <Button minHeight="20.0" mnemonicParsing="false" prefHeight="2.0" prefWidth="70.0" style="-fx-background-color: grey;" text="Search">
+                     <VBox.margin>
+                        <Insets left="45.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                     <padding>
+                        <Insets top="-1.0" />
+                     </padding>
+                  </Button>
+               </children>
+            </VBox>
+            <ImageView fitHeight="50.0" fitWidth="60.0" layoutX="376.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/accessoire%20c.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="60.0" layoutX="311.0" layoutY="253.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/accessoire%20c.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="60.0" layoutX="376.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/accessoire%20c.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="60.0" layoutX="310.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/arme%20main%20c%20d.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="60.0" layoutX="239.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/arme%20main%20c.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="60.0" layoutX="169.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/casque%20c.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="60.0" layoutX="169.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/armor%20c.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="60.0" layoutX="233.0" layoutY="253.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/chauss.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
