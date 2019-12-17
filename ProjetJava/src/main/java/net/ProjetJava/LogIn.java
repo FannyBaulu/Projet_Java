@@ -27,6 +27,10 @@ private Button login;
 @FXML
 private Label create;
 
+public static int id;
+
+
+
 public boolean checkLogin() {
 
 	if (!TFusername.getText().equals("") && !TFpassword.getText().equals("")) {
@@ -34,6 +38,7 @@ public boolean checkLogin() {
 		try {
 			while (test.next()) {
 				if (test.getString(3).equals(TFpassword.getText())) {
+					this.id = test.getInt(1);
 					return true;
 				}
 			}
@@ -60,6 +65,16 @@ public void Login (ActionEvent event) throws IOException {
 public void createacc () throws IOException
 {
 	  App.setRoot("Register");
+}
+
+
+public static int getId() {
+	return id;
+}
+
+
+public static void setId(int id) {
+	LogIn.id = id;
 }
 }
 

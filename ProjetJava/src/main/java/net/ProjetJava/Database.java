@@ -22,6 +22,7 @@ public class Database {
 
 	// PrepareStatement for todo insertion
 	private PreparedStatement insertStatement;
+	private PreparedStatement insertStatement2;
 
 	// PrepareUpdate
 	private PreparedStatement updateStatement;
@@ -38,9 +39,12 @@ public class Database {
 					"INSERT INTO utilisateur (UtilisateurNom,motdepasse,Mail) VALUES(?,?,?)",
 					Statement.RETURN_GENERATED_KEYS // Avoid double id
 					);
-			updateStatement = cnx.prepareStatement(
-					"UPDATE utilisateur SET UtilisateurNom= ? WHERE id=?"
+			insertStatement2 = cnx.prepareStatement(
+					"INSERT INTO utilisateur_equipements (idUtilisateur,idEquipements) VALIES(?,?)"
+					
 					);
+					
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -88,6 +92,19 @@ public class Database {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	public void insertEquip (int idUtilisateur, int idEquipement) {
+		try {
+			insertStatement2.setInt(1, idUtilisateur);
+			insertStatement2.setInt(2, idEquipement);
+			int inserted = insertStatement2.executeUpdate();
+			ResultSet res = insertStatement2.getGeneratedKeys();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 	}
 	
  
