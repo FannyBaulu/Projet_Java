@@ -25,7 +25,11 @@ private Label lblstatus;
 @FXML
 private Button login;
 @FXML
+private Button update;
+@FXML
 private Label create;
+@FXML
+private Button delete;
 
 public static int id;
 
@@ -33,6 +37,7 @@ public static int id;
 
 public boolean checkLogin() {
 
+	this.id=0;
 	if (!TFusername.getText().equals("") && !TFpassword.getText().equals("")) {
 		ResultSet test = Database.getInstance().query("SELECT * FROM utilisateur WHERE UtilisateurNom = '"+TFusername.getText()+"'");
 		try {
@@ -67,6 +72,12 @@ public void createacc () throws IOException
 	  App.setRoot("Register");
 }
 
+public void goUp() throws IOException{
+	App.setRoot("Update");
+}
+public void goDel() throws IOException {
+	App.setRoot("Delete");
+}
 
 public static int getId() {
 	return id;

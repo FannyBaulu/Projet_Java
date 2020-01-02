@@ -26,6 +26,9 @@ public class Database {
 
 	// PrepareUpdate
 	private PreparedStatement updateStatement;
+	private PreparedStatement safeupstatement;
+	
+	private PreparedStatement deleteStatement;
 
 	private Database() {
 
@@ -40,10 +43,19 @@ public class Database {
 					Statement.RETURN_GENERATED_KEYS // Avoid double id
 					);
 			insertStatement2 = cnx.prepareStatement(
-					"INSERT INTO utilisateur_equipements (idUtilisateur,idEquipements) VALIES(?,?)"
+					"INSERT INTO utilisateur_equipements (idUtilisateur,idEquipement) VALUES(?,?)"
 					
 					);
+			
+			safeupstatement = cnx.prepareStatement(
+					"SET SQL_SAFE_UPDATES = 0");
+			updateStatement = cnx.prepareStatement(	
 					
+					"UPDATE utilisateur SET motdepasse = ? WHERE UtilisateurNom=?"
+					);
+			deleteStatement = cnx.prepareStatement(
+					"DELETE FROM utilisateur WHERE UtilisateurNom= ?"
+					);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -95,27 +107,43 @@ public class Database {
 	}
 	public void insertEquip (int idUtilisateur, int idEquipement) {
 		try {
+			
 			insertStatement2.setInt(1, idUtilisateur);
 			insertStatement2.setInt(2, idEquipement);
 			int inserted = insertStatement2.executeUpdate();
-			ResultSet res = insertStatement2.getGeneratedKeys();
+			System.out.println("INSERTED:"+inserted);
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		
+	
 	}
 	
- 
 	 
-//	 public void updateUser(ToDo todo) {
-//			try {
-//				updateStatement.setString(1, todo.getTask());
-//				updateStatement.setInt(2, todo.getId());
-//				updateStatement.executeUpdate();
-//			} catch (SQLException e) {
-//				e.printStackTrace();
-//			}
-//		}
+	 public void updateUser( String motdepasse, String UtilisateurNom) {
+			try {
+				safeupstatement.execute();
+				updateStatement.setString(1, motdepasse);
+				updateStatement.setString(2,UtilisateurNom);
+				updateStatement.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	 
+	 public void deleteUser (String UtilisateurNom)
+	 {
+		 try {
+			safeupstatement.execute();
+			deleteStatement.setString(1, UtilisateurNom);
+			deleteStatement.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 
+	 }
+	
 }

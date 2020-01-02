@@ -56,6 +56,16 @@
             </Label>
             <PasswordField fx:id="TFpassword" layoutX="185.0" layoutY="184.0" prefHeight="37.0" prefWidth="231.0" />
             <Label fx:id="lblstatus" alignment="CENTER" contentDisplay="CENTER" layoutX="290.0" layoutY="230.0" />
+            <Button fx:id="update" layoutX="14.0" layoutY="304.0" mnemonicParsing="false" onAction="#goUp" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: #525252;" text="Update" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="delete" layoutX="103.0" layoutY="304.0" mnemonicParsing="false" onAction="#goDel" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: red;" text="Delete" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </children>

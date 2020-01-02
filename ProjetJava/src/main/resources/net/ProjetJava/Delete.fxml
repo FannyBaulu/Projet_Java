@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.ProjetJava.Register">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.ProjetJava.Delete">
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
          <children>
@@ -36,7 +36,7 @@
                         <Image url="@images/lords%20back.jpg" />
                      </image>
                   </ImageView>
-                  <TextField fx:id="TFusernamer" layoutX="188.0" layoutY="140.0" prefHeight="37.0" prefWidth="231.0" />
+                  <TextField fx:id="username" layoutX="188.0" layoutY="140.0" prefHeight="37.0" prefWidth="231.0" />
                   <Label fx:id="lblusernamer" layoutX="263.0" layoutY="114.0" text="USERNAME">
                      <font>
                         <Font name="Candara Bold" size="15.0" />
@@ -47,24 +47,24 @@
                         <Font name="Candara Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Button fx:id="loginr" graphicTextGap="5.0" layoutX="304.0" layoutY="300.0" mnemonicParsing="false" onAction="#LogIn" prefHeight="25.0" prefWidth="96.0" style="-fx-background-color: #525252;" text="Log In" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
+                  <Button fx:id="home" graphicTextGap="5.0" layoutX="304.0" layoutY="300.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="96.0" style="-fx-background-color: #525252;" text="Home" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <TextField fx:id="TFmail" layoutX="188.0" layoutY="65.0" prefHeight="37.0" prefWidth="231.0" />
+                  <TextField fx:id="mail" layoutX="188.0" layoutY="65.0" prefHeight="37.0" prefWidth="231.0" />
                   <Label fx:id="lblmail" layoutX="281.0" layoutY="37.0" text="E-MAIL">
                      <font>
                         <Font name="Candara Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Button fx:id="create" layoutX="188.0" layoutY="300.0" mnemonicParsing="false" onAction="#Register" prefHeight="25.0" prefWidth="96.0" style="-fx-background-color: #525252;" text="Create" textFill="WHITE">
+                  <Button fx:id="delete" layoutX="188.0" layoutY="300.0" mnemonicParsing="false" onAction="#delete" prefHeight="25.0" prefWidth="96.0" style="-fx-background-color: red;" text="Delete" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <PasswordField fx:id="TFpasswordr" layoutX="185.0" layoutY="216.0" prefHeight="37.0" prefWidth="231.0" />
-                  <Label fx:id="lblstatusr" layoutX="286.0" layoutY="266.0" />
+                  <PasswordField fx:id="password" layoutX="185.0" layoutY="216.0" prefHeight="37.0" prefWidth="231.0" />
+                  <Label fx:id="status" layoutX="286.0" layoutY="266.0" />
                </children>
             </Pane>
          </children>
