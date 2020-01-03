@@ -57,6 +57,11 @@ public class Delete {
 		}
 	}
 	
+	public void home () throws IOException
+	{
+		App.setRoot("LogIn");
+	}
+	
 	
 	
 }

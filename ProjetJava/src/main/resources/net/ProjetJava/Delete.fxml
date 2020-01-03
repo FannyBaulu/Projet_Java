@@ -47,7 +47,7 @@
                         <Font name="Candara Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Button fx:id="home" graphicTextGap="5.0" layoutX="304.0" layoutY="300.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="96.0" style="-fx-background-color: #525252;" text="Home" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
+                  <Button fx:id="home" graphicTextGap="5.0" layoutX="304.0" layoutY="300.0" mnemonicParsing="false" onAction="#home" prefHeight="25.0" prefWidth="96.0" style="-fx-background-color: #525252;" text="Home" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>

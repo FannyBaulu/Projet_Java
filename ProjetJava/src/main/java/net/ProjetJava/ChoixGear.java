@@ -1,11 +1,13 @@
 package net.ProjetJava;
 
 import java.io.File;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -52,6 +54,9 @@ public class ChoixGear {
 	private ImageView mainH;
 	@FXML
 	private ImageView offH;
+	
+	@FXML
+	private Label home;
 	
 	
 
@@ -144,6 +149,10 @@ public class ChoixGear {
 		}
 
 		// Fonction de lancement de selection, comprends la requete SQL
+	}
+	
+	public void home() throws IOException {
+		App.setRoot("LogIn");
 	}
 
 }
