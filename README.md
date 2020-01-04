@@ -35,7 +35,7 @@ Then Next>Finish.
 After this, you need to link your workbench with the program.
 In order to do so, open the Database.java and in the method "private Database" change the url, the user and the passwd according to your Workbench access information.
 
- ![Screenshot](screenDatabase.png)
+ ![Screenshot](screendDatabase.png)
 
 Once you are done, you should be able to launch the app.
 For that run it as "Java Application" and click on OK.
