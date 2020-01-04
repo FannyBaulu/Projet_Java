@@ -6,7 +6,7 @@ We choose to make this software to make this selection of gear easier for the pl
 We also gave the possibility to the user to get the best choice from what he possess which is not possible to do inside the game.
 
 
-### Requirements:
+## Requirements:
 
 In order to use this software, you will need to following programms:
 
@@ -14,14 +14,14 @@ In order to use this software, you will need to following programms:
 - MySQL Workbench
 - Java JDK 12
 
-### Installation
+## Installation
 
-## Database
+### Database
 
 Into your workbench, create a new Database.
 Then, take the SQL scripts from the file "BDDlords" and execute them in order.
 
-## Eclipse
+### Eclipse
 
 First, open Eclipse and import the file obtained from the clone URL.
 
@@ -44,7 +44,7 @@ You should see this launching :
 
  ![Screenshot](screenLogiciel.png) 
 
-### Software Guidance
+## Software Guidance
 
 Once to the first page, you can start creating your account, then go back to the LogIn page.
 Enter your information and login.
@@ -60,7 +60,7 @@ We used Java languague for our source code, SQL Workbench for the database and S
 The images are copyritted and got from the game. (Screenshots and Paint :D)
 
 
-### Developpers
+## Developpers
 
 Alithefirecodeur
 Erayana
