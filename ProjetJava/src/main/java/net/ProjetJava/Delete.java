@@ -10,9 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-
 public class Delete {
-	
+
 	@FXML
 	private TextField username;
 	@FXML
@@ -25,15 +24,20 @@ public class Delete {
 	private Button home;
 	@FXML
 	private Label status;
-	
+
+	/**
+	 * Look into the database to check the existence of the user
+	 * 
+	 * @return true if exists
+	 */
 	public boolean checkLogin() {
 
-		
-		if (!username.getText().equals("") && !password.getText().equals("")&&!mail.getText().equals("")) {
-			ResultSet test = Database.getInstance().query("SELECT * FROM utilisateur WHERE UtilisateurNom = '"+username.getText()+"'");
+		if (!username.getText().equals("") && !password.getText().equals("") && !mail.getText().equals("")) {
+			ResultSet test = Database.getInstance()
+					.query("SELECT * FROM utilisateur WHERE UtilisateurNom = '" + username.getText() + "'");
 			try {
 				while (test.next()) {
-					if (test.getString(3).equals(password.getText())&&test.getString(4).equals(mail.getText())) {
+					if (test.getString(3).equals(password.getText()) && test.getString(4).equals(mail.getText())) {
 						return true;
 					}
 				}
@@ -45,23 +49,30 @@ public class Delete {
 		}
 		return false;
 	}
-	
-	public void delete (ActionEvent event) throws IOException {
+
+	/**
+	 * If the user is in the database, this method will delete it's information.
+	 * 
+	 * @param event
+	 * @throws IOException
+	 */
+	public void delete(ActionEvent event) throws IOException {
 		Boolean test = checkLogin();
 		if (test == true) {
 			Database.getInstance().deleteUser(username.getText());
 			status.setText("Delete Success");
-		}
-		else {
+		} else {
 			status.setText("Delete Failed");
 		}
 	}
-	
-	public void home () throws IOException
-	{
+
+	/**
+	 * Set the current to the LogIn page.
+	 * 
+	 * @throws IOException
+	 */
+	public void home() throws IOException {
 		App.setRoot("LogIn");
 	}
-	
-	
-	
+
 }

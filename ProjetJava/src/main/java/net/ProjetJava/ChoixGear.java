@@ -54,31 +54,29 @@ public class ChoixGear {
 	private ImageView mainH;
 	@FXML
 	private ImageView offH;
-	
+
 	@FXML
 	private Label home;
-	
-	
 
-
-	public void allBoosts() {
-		// Requete SQL Additionne BOOSTS de Selection et affiche
-	}
-
-	public void popUpBoosts() {
-		// recup : Boost 1,2..et Pourcentage 1,2...et Afficher par Equipement Sel
-	}
+	/**
+	 * Allows to select a piece of gear according to some criteria by using queries.
+	 * There is as much queries as there is different type of gear. It cast the
+	 * image corresponding to the piece of gear chosen. Criteria is selected by the
+	 * user thanks to the radio button he selected.
+	 * 
+	 * @param radio button
+	 * @throws SQLException
+	 */
 
 	public void rechercheEquipement(RadioButton radio) throws SQLException {
-		
+
 		String name = radio.getId();
 		ResultSet accessoire = Database.getInstance()
 				.query("SELECT Images FROM bddlords.boost AS B JOIN bddlords.utilisateur_equipements AS UE"
 						+ " ON UE.idEquipement = B.idequipement WHERE UE.idUtilisateur = '1'"
 						+ " AND B.type = 'Accessories' Order by B." + name + " DESC LIMIT 1");
-		// affichage dans image view
 		accessoire.next();
-		Image acc = new Image(getClass().getResourceAsStream("images"+accessoire.getString("Images")));
+		Image acc = new Image(getClass().getResourceAsStream("images" + accessoire.getString("Images")));
 		Acc.setImage(acc);
 		Acc2.setImage(acc);
 		Acc3.setImage(acc);
@@ -87,41 +85,48 @@ public class ChoixGear {
 						+ "ON UE.idEquipement = B.idequipement\r\n" + "WHERE UE.idUtilisateur = '1'\r\n"
 						+ "AND B.type = 'Body Armor'\r\n" + "Order by B." + name + " DESC LIMIT 1");
 		bodyArmor.next();
-		
-		Image bodya = new Image(getClass().getResourceAsStream("images"+bodyArmor.getString("Images")));
-		
+
+		Image bodya = new Image(getClass().getResourceAsStream("images" + bodyArmor.getString("Images")));
+
 		body.setImage(bodya);
 		ResultSet helmets = Database.getInstance()
 				.query("SELECT Images FROM bddlords.boost AS B\r\n" + "JOIN bddlords.utilisateur_equipements AS UE\r\n"
 						+ "ON UE.idEquipement = B.idequipement\r\n" + "WHERE UE.idUtilisateur = '1'\r\n"
 						+ "AND B.type = 'Helmets'\r\n" + "Order by B." + name + " DESC LIMIT 1");
 		helmets.next();
-		Image helmetsI = new Image(getClass().getResourceAsStream("images"+helmets.getString("Images")));
+		Image helmetsI = new Image(getClass().getResourceAsStream("images" + helmets.getString("Images")));
 		helm.setImage(helmetsI);
 		ResultSet footwear = Database.getInstance()
 				.query("SELECT Images FROM bddlords.boost AS B\r\n" + "JOIN bddlords.utilisateur_equipements AS UE\r\n"
 						+ "ON UE.idEquipement = B.idequipement\r\n" + "WHERE UE.idUtilisateur = '1'\r\n"
 						+ "AND B.type = 'Footwear'\r\n" + "Order by B." + name + " DESC LIMIT 1");
 		footwear.next();
-		Image footW = new Image(getClass().getResourceAsStream("images"+footwear.getString("Images")));
+		Image footW = new Image(getClass().getResourceAsStream("images" + footwear.getString("Images")));
 		foot.setImage(footW);
 		ResultSet mainhand = Database.getInstance()
 				.query("SELECT Images FROM bddlords.boost AS B\r\n" + "JOIN bddlords.utilisateur_equipements AS UE\r\n"
 						+ "ON UE.idEquipement = B.idequipement\r\n" + "WHERE UE.idUtilisateur = '1'\r\n"
 						+ "AND B.type = 'Main-Hand'\r\n" + "Order by B." + name + " DESC LIMIT 1");
 		mainhand.next();
-		Image mainHand = new Image(getClass().getResourceAsStream("images"+mainhand.getString("Images")));
+		Image mainHand = new Image(getClass().getResourceAsStream("images" + mainhand.getString("Images")));
 		mainH.setImage(mainHand);
 		ResultSet offHand = Database.getInstance()
 				.query("SELECT Images FROM bddlords.boost AS B\r\n" + "JOIN bddlords.utilisateur_equipements AS UE\r\n"
 						+ "ON UE.idEquipement = B.idequipement\r\n" + "WHERE UE.idUtilisateur = '1'\r\n"
 						+ "AND B.type = 'Off-Hand'\r\n" + "Order by B." + name + " DESC LIMIT 1");
 		offHand.next();
-		Image offhand = new Image(getClass().getResourceAsStream("images"+offHand.getString("Images")));
+		Image offhand = new Image(getClass().getResourceAsStream("images" + offHand.getString("Images")));
 		offH.setImage(offhand);
 
 	}
 
+	/**
+	 * It acts on the radio button selected and call the method looking into the
+	 * database for gear. It makes the link between the criteria looked by the user
+	 * and the database.
+	 * 
+	 * @throws SQLException
+	 */
 	public void search() throws SQLException {
 
 		if (Ranged_ATK.isSelected()) {
@@ -148,9 +153,13 @@ public class ChoixGear {
 			rechercheEquipement(Gold_Production_Increase);
 		}
 
-		// Fonction de lancement de selection, comprends la requete SQL
 	}
-	
+
+	/**
+	 * Set the current root to the LogIn page.
+	 * 
+	 * @throws IOException
+	 */
 	public void home() throws IOException {
 		App.setRoot("LogIn");
 	}

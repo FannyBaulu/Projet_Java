@@ -14,30 +14,43 @@ import java.sql.*;
  */
 public class App extends Application {
 
-    private static Scene scene;
+	private static Scene scene;
 
-    
-    @Override
-    public void start(Stage stage) throws IOException {
+	@Override
+	/**
+	 * Set the stage into the Login FXML.
+	 */
+	public void start(Stage stage) throws IOException {
 
-    	//Parent root = FXMLLoader.load(getClass().getResource("/src/main/ressources/net/ProjetJava/LogIn.fxml"));
-        scene = new Scene(loadFXML("LogIn"));
-        stage.setScene(scene);
-        stage.show();
-    }
+		scene = new Scene(loadFXML("LogIn"));
+		stage.setScene(scene);
+		stage.show();
+	}
 
+	/**
+	 * Set the scene root into the login page.
+	 * 
+	 * @param fxml
+	 * @throws IOException
+	 */
+	static void setRoot(String fxml) throws IOException {
+		scene.setRoot(loadFXML(fxml));
+	}
 
-    static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
-    }
+	/**
+	 * Load the Login FXML.
+	 * 
+	 * @param fxml
+	 * @return
+	 * @throws IOException
+	 */
+	private static Parent loadFXML(String fxml) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+		return fxmlLoader.load();
+	}
 
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
-    }
-
-    public static void main(String[] args) {
-        launch();
-    }
+	public static void main(String[] args) {
+		launch();
+	}
 
 }

@@ -10,7 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class Update {
-	
+
 	@FXML
 	private TextField username;
 	@FXML
@@ -26,23 +26,28 @@ public class Update {
 	@FXML
 	private Label status;
 
-	public void login () throws IOException{
+	/**
+	 * Set the root to the Login page.
+	 * 
+	 * @throws IOException
+	 */
+	public void login() throws IOException {
 		App.setRoot("LogIn");
-		}
-	
+	}
+
+	/**
+	 * Check into the database if the user's informations exists.
+	 * 
+	 * @return true if it does.
+	 */
 	public boolean checkRegister() {
 
 		if (!email.getText().equals("") && !username.getText().equals("") && !psw.getText().equals("")) {
 			ResultSet test = Database.getInstance().query("SELECT * FROM utilisateur");
 			try {
 				while (test.next()) {
-					System.out.println("Utilisateur ecrit:"+username.getText());
-					System.out.println("Utilisateur BDD:"+test.getString(2));
-					System.out.println("Mail BDD: "+test.getString(4));
-					System.out.println("Mail ecrit : "+email.getText());
-					System.out.println("Psw BDD:" +test.getString(3));
-					System.out.println("Psw ecrit:" + psw.getText());
-					if (test.getString(2).equals(username.getText()) && test.getString(4).equals(email.getText()) && test.getString(3).equals(psw.getText())) {
+					if (test.getString(2).equals(username.getText()) && test.getString(4).equals(email.getText())
+							&& test.getString(3).equals(psw.getText())) {
 						return true;
 					}
 				}
@@ -54,17 +59,20 @@ public class Update {
 		}
 		return false;
 	}
-	
+
+	/**
+	 * If the user's informations exists in the database, this method change the
+	 * original password into the new one. Otherwise, it informs the user of the
+	 * update failure.
+	 */
 	public void launchUpdate() {
-		
-		if (checkRegister()==true&& psw.getText()!=newpsw.getText())
-		{
-			Database.getInstance().updateUser(newpsw.getText(),username.getText());
+
+		if (checkRegister() == true && psw.getText() != newpsw.getText()) {
+			Database.getInstance().updateUser(newpsw.getText(), username.getText());
 			status.setText("Account updated");
-		}
-		else {
+		} else {
 			status.setText("Password already exist or this account doesn't exist");
 		}
-		
+
 	}
 }

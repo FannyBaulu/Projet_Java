@@ -30,14 +30,17 @@ public class Register {
 	@FXML
 	private Button create;
 
+	/**
+	 * Check if the informations typed by the user already exist into the database.
+	 * 
+	 * @return false if it does.
+	 */
 	public boolean checkRegister() {
 
 		if (!TFmail.getText().equals("") && !TFusernamer.getText().equals("") && !TFpasswordr.getText().equals("")) {
 			ResultSet test = Database.getInstance().query("SELECT * FROM utilisateur");
 			try {
 				while (test.next()) {
-					System.out.println(TFusernamer.getText());
-					System.out.println(test.getString(2));
 					if (test.getString(2).equals(TFusernamer.getText()) || test.getString(4).equals(TFmail.getText())) {
 						return false;
 					}
@@ -51,6 +54,14 @@ public class Register {
 		return false;
 	}
 
+	/**
+	 * If the informations typed by the user doesn't exist into the database, this
+	 * method insert them into it. If not, inform the user of the registration
+	 * failure.
+	 * 
+	 * @param event
+	 * @throws IOException
+	 */
 	public void Register(ActionEvent event) throws IOException {
 
 		Boolean test = checkRegister();
@@ -63,6 +74,11 @@ public class Register {
 		}
 	}
 
+	/**
+	 * Set the root to the Login page.
+	 * 
+	 * @throws IOException
+	 */
 	public void LogIn() throws IOException {
 		App.setRoot("LogIn");
 	}
