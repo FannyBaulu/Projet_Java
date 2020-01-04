@@ -65,6 +65,6 @@ The images are copyritted and took from the game. (Screenshots and Paint :D)
 Alithefirecodeur
 Erayana
 
-##Contributors
+## Contributors
 
 Master Loïc, Pandada King, StackOverFlow Users, Toffer, Yannick, Nadine's cakes.
